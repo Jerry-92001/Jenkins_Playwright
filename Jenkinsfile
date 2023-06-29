@@ -5,7 +5,7 @@ pipeline {
     stage('Run tests') {
       steps {
         script {
-          // Run Playwright tests
+          // Run Playwright test
           sh 'npm run test'
         }
       }

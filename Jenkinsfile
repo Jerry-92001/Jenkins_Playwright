@@ -1,24 +1,26 @@
-pipeline {
-  agent any
-
-  stages {
-    stage('Run tests') {
-      steps {
-        script {
-          // Run Playwright test
-          sh 'npm run test'
+pipeline{
+    agent any
+    stages{
+        stage('install playwright'){
+            steps{
+               sh '''
+                  npm i -D @playwright/test
+                  npx playwright install
+            '''    
+            }
         }
-      }
+        stage('help'){
+            steps{
+                sh 'npx playwright test --help'
+            }
+        }
+        stage('test'){
+            steps{
+              sh '''
+                npm i _d @playwright/test
+                npx playwright test
+            ''' 
+            }
+        }
     }
-  }
-
-  post {
-    always {
-      // Archive test artifacts
-      archiveArtifacts artifacts: 'tests-examples/**'
-
-      // Clean up the workspace
-      cleanWs()
-    }
-  }
 }

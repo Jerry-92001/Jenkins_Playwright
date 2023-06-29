@@ -15,7 +15,7 @@ pipeline {
   post {
     always {
       // Archive test artifacts
-      archiveArtifacts artifacts: 'test-results/**'
+      archiveArtifacts artifacts: 'tests-examples/**'
 
       // Clean up the workspace
       cleanWs()

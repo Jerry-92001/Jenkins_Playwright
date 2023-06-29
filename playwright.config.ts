@@ -66,13 +66,13 @@ export default defineConfig({
 
   //Monocart Report:
 
- reporter: [
-  ['list'],
-  ['monocart-reporter', {  
-      name: "My Test Report",
-      outputFile: './test-results/report.html'
-  }]
-]
+//  reporter: [
+//   ['list'],
+//   ['monocart-reporter', {  
+//       name: "My Test Report",
+//       outputFile: './test-results/report.html'
+//   }]
+// ]
 
   /* Run your local dev server before starting the tests */
   // webServer: {

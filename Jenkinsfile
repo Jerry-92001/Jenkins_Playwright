@@ -10,7 +10,7 @@ pipeline {
           env.PATH = "${nodejsInstallation}/bin:${env.PATH}"
 
           // Install project dependencies
-          sh 'npm install'
+          sh 'npm ci'
         }
       }
     }
@@ -19,16 +19,7 @@ pipeline {
       steps {
         script {
           // Run Playwright tests
-          sh 'npm test'
-        }
-      }
-    }
-
-    stage('Publish test results') {
-      steps {
-        script {
-          // Publish test results
-          junit 'test-results.xml'
+          sh 'npm run test'
         }
       }
     }
@@ -36,6 +27,9 @@ pipeline {
 
   post {
     always {
+      // Archive test artifacts
+      archiveArtifacts artifacts: 'test-results/**'
+
       // Clean up the workspace
       cleanWs()
     }

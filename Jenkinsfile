@@ -10,7 +10,7 @@ pipeline {
     stage('Install dependencies') {
       steps {
           // Install project dependencies
-          sh 'npm ci'
+          sh 'sudo npm ci'
       }
     }
 

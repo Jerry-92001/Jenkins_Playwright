@@ -1,6 +1,6 @@
 pipeline {
   agent any
-  
+
     tools {
     // Install Node.js
     nodejs 'NodeJS'
@@ -11,7 +11,7 @@ pipeline {
       steps {
         script {
           // Install project dependencies
-          sh 'npm install'
+          sh 'npm init playwright @latest'
         }
       }
     }
@@ -20,7 +20,7 @@ pipeline {
       steps {
         script {
           // Run Playwright tests
-          sh 'npm test'
+          sh 'npx playwright test'
         }
       }
     }

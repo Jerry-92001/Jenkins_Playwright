@@ -1,12 +1,26 @@
 pipeline {
   agent any
+  
+    tools {
+    // Install Node.js
+    nodejs 'NodeJS'
+  }
 
   stages {
+    stage('Install dependencies') {
+      steps {
+        script {
+          // Install project dependencies
+          sh 'npm install'
+        }
+      }
+    }
+
     stage('Run tests') {
       steps {
         script {
           // Run Playwright tests
-          sh 'npm run test'
+          sh 'npm test'
         }
       }
     }
@@ -14,9 +28,6 @@ pipeline {
 
   post {
     always {
-      // Archive test artifacts
-      archiveArtifacts artifacts: 'test-results/**'
-
       // Clean up the workspace
       cleanWs()
     }

@@ -1,34 +1,27 @@
-pipeline {
+pipeline{
   agent any
 
-  tools {
-    // Install Node.js
-    nodejs 'NodeJS'
-  }
-
-  stages {
-    stage('Install dependencies') {
-      steps {
-          dir  'D:\\Playwright\\Jenkins_Playwright\\Jenkins_Playwright'
-          // Install project dependencies
-          sh 'npm ci'
+  stages{
+    stage('install playwright'){
+      steps{
+        sh '''
+          npm i -D @playwright/test
+          npx playwright install
+        '''
       }
     }
-
-    stage('Run tests') {
-      steps {
-        script {
-          // Run Playwright tests
-          sh 'npm test'
-        }
+    stage('help'){
+      steps{
+        sh 'npx playwright test --help'
       }
     }
-  }
-
-  post {
-    always {
-      // Clean up the workspace
-      cleanWs()
+    stage('test'){
+      steps{
+        sh '''
+          npx playwright test --list
+          npx playwright test
+        '''
+      }
     }
   }
 }

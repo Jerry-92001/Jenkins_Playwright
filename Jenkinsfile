@@ -38,9 +38,9 @@ pipeline{
     stage('Cleanup Selenium Grid') {
       steps {
         // Stop and remove Selenium Grid containers
-        sh 'docker stop selenium-hub'
-        sh 'docker rm selenium-hub'
-        sh 'docker rm $(docker ps -aq --filter="name=selenium-node")'
+        bat 'docker stop selenium-hub'
+        bat 'docker rm selenium-hub'
+        bat 'docker rm $(docker ps -aq --filter="name=selenium-node")'
       }
     }
   }

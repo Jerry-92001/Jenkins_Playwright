@@ -9,7 +9,7 @@ pipeline {
   stages {
     stage('Install dependencies') {
       steps {
-          dir  'D:\Playwright\Jenkins_Playwright\Jenkins_Playwright'
+          dir  'D:\\Playwright\\Jenkins_Playwright\\Jenkins_Playwright'
           // Install project dependencies
           sh 'npm ci'
       }

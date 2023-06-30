@@ -1,27 +1,11 @@
-pipeline{
-  agent any
+pipeline {
+    agent any
 
-  stages{
-    stage('install playwright'){
-      steps{
-        sh '''
-          npm i -D @playwright/test
-          npx playwright install
-        '''
-      }
+    stages {
+        stage('Hello') {
+            steps {
+                echo 'Hello World'
+            }
+        }
     }
-    stage('help'){
-      steps{
-        sh 'npx playwright test --help'
-      }
-    }
-    stage('test'){
-      steps{
-        sh '''
-          npx playwright test --list
-          npx playwright test
-        '''
-      }
-    }
-  }
 }

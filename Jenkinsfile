@@ -1,17 +1,16 @@
 pipeline {
   agent any
 
-    tools {
-    // Install Node.js
-    nodejs 'NodeJS'
-  }
-
   stages {
     stage('Install dependencies') {
       steps {
         script {
+          // Install Node.js
+          def nodejsInstallation = tool 'NodeJS'
+          env.PATH = "${nodejsInstallation}/bin:${env.PATH}"
+
           // Install project dependencies
-          sh 'npm init playwright @latest'
+          sh 'npm install'
         }
       }
     }
@@ -20,7 +19,7 @@ pipeline {
       steps {
         script {
           // Run Playwright tests
-          sh 'npx playwright test'
+          sh 'npm test'
         }
       }
     }

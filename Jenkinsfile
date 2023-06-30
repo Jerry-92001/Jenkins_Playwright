@@ -9,8 +9,9 @@ pipeline {
   stages {
     stage('Install dependencies') {
       steps {
+          dir  'D:\Playwright\Jenkins_Playwright\Jenkins_Playwright'
           // Install project dependencies
-          sh 'sudo npm ci'
+          sh 'npm ci'
       }
     }
 

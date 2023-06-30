@@ -5,8 +5,8 @@ pipeline{
     stage('test'){
       steps{
         sh '''
-          npx playwright test --list
-          npx playwright test
+          sudo npx playwright test --list
+          sudo npx playwright test
         '''
       }
     }

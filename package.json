@@ -1,20 +1,25 @@
 {
-  "name": "jenkins_playwright",
+  "name": "new",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {},
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/S2605/Jenkins_Playwright.git"
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/S2605/Jenkins_Playwright/issues"
+  "dependencies": {
+    "@types/mocha": "^10.0.1",
+    "@types/node": "^20.3.3",
+    "chai": "^4.3.7",
+    "eslint": "^8.44.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "lighthouse": "^10.3.0",
+    "mocha": "^10.2.0",
+    "playwright-lighthouse": "^3.1.0",
+    "prettier": "^2.8.8"
   },
-  "homepage": "https://github.com/S2605/Jenkins_Playwright#readme",
   "devDependencies": {
     "@playwright/test": "^1.35.1"
   }
